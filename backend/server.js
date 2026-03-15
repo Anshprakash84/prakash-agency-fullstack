@@ -41,11 +41,11 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/prakash-a
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/products', require('./src/routes/products'));
+app.use('/api/products', require('./routes/products'));
 app.use('/api/categories', require('./routes/categories'));
 app.use('/api/inquiries', require('./routes/inquiries'));
 app.use('/api/apartment', require('./routes/apartment'));
-app.use('/api/gallery', require('./src/routes/gallery'));
+app.use('/api/gallery', require('./routes/gallery'));
 app.use('/api/testimonials', require('./routes/testimonials'));
 
 // Health check
