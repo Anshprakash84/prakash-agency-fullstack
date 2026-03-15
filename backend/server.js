@@ -35,9 +35,10 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Database connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/prakash-agency')
-  .then(() => console.log('✅ MongoDB connected successfully'))
-  .catch(err => console.error('❌ MongoDB connection error:', err));
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('✅ MongoDB connected successfully'))
+    .catch(err => console.error('❌ MongoDB connection error:', err));
+
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
