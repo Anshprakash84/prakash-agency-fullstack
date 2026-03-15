@@ -9,7 +9,7 @@ require('dotenv').config();
 const app = express();
 
 // Security middleware
-app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+app.use(helmet({ crossOrig  inResourcePolicy: { policy: 'cross-origin' } }));
 
 // Rate limiting
 const limiter = rateLimit({
@@ -35,12 +35,15 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Database connection
+console.log("MONGO_URI:", process.env.MONGO_URI);
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("✅ MongoDB connected successfully"))
     .catch(err => {
       console.error("❌ MongoDB error:", err);
       process.exit(1);
     });
+
 
 
 // Routes
